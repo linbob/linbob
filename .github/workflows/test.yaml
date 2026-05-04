@@ -1,0 +1,18 @@
+name: OpenAPI
+
+on:
+  push:
+    branches: [ test ]
+
+jobs:
+  test:
+    runs-on: self-hosted
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Run script
+      run: |
+        chmod +x /Users/bob.lin/Desktop/104vip-dev-tools/apim-key-diff/apim-key-diff
+        ./Users/bob.lin/Desktop/104vip-dev-tools/apim-key-diff/apim-key-diff /Users/bob.lin/Desktop/104vip-dev-tools/apim-key-diff/idc-services.csv idc --stg-cred /Users/bob.lin/Desktop/104vip-dev-tools/apim-key-diff/stg.txt --prod-cred /Users/bob.lin/Desktop/104vip-dev-tools/apim-key-diff/prod.txt
+
